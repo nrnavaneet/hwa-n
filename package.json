@@ -1,0 +1,39 @@
+{
+  "name": "tholu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "THOLU — an interactive field guide to Tholu Bommalata, the vanishing leather shadow play of Andhra Pradesh.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui"
+  },
+  "dependencies": {
+    "framer-motion": "14.14.0",
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.65.1",
+    "@types/node": "^22.18.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/three": "0.187.0",
+    "eslint": "10.15.0",
+    "eslint-config-next": "16.4.6",
+    "typescript": "5.9.3",
+    "vitest": "5.1.0"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}
