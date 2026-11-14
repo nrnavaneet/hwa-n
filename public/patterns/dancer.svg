@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800" role="img" aria-label="Printable template for a dancing puppet with separate arm and leg pieces">
+  <rect width="600" height="800" fill="#ffffff"/>
+  <g fill="none" stroke="#111111" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- body -->
+    <path d="M300 150c-40 4-58 56-54 128l4 120h100l4-120c4-72-14-124-54-128Z"/>
+    <!-- skirt -->
+    <path d="M232 396h136l40 150H192Z" stroke-dasharray="0"/>
+    <!-- head -->
+    <circle cx="300" cy="104" r="46"/>
+    <path d="M262 74l-22-52 40 20Z"/>
+    <path d="M300 44l14-44 14 44Z"/>
+    <path d="M338 74l22-52-40 20Z"/>
+    <!-- arm (separate piece) -->
+    <path d="M120 250c-16 40-16 96-6 150 6 30 14 54 24 70l40-14c-10-16-18-38-24-66-8-48-6-96 6-130Z"/>
+    <circle cx="112" cy="252" r="7" stroke-dasharray="0"/>
+    <!-- leg (separate piece) -->
+    <path d="M300 520c-10 60-16 130-16 200h64c0-70-6-140-16-200Z"/>
+    <circle cx="300" cy="520" r="7"/>
+    <!-- second leg piece -->
+    <path d="M380 540c14 58 22 122 24 184h60c-2-64-12-128-28-186Z"/>
+    <circle cx="382" cy="540" r="7"/>
+  </g>
+  <g fill="#111111" font-family="Helvetica, Arial, sans-serif">
+    <text x="300" y="770" font-size="20" text-anchor="middle" letter-spacing="3">THOLU · DANCER TEMPLATE</text>
+    <text x="120" y="500" font-size="15" text-anchor="middle">arm</text>
+    <text x="300" y="756" font-size="0">.</text>
+  </g>
+  <g fill="none" stroke="#111111" stroke-width="1.4">
+    <circle cx="300" cy="300" r="6"/>
+    <circle cx="300" cy="470" r="6"/>
+    <circle cx="120" cy="430" r="6"/>
+  </g>
+  <text x="300" y="790" fill="#666666" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle">Print at 100% · cut the solid lines · punch the small circles · join with split pins</text>
+</svg>

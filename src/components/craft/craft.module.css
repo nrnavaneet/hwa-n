@@ -1,0 +1,301 @@
+/* Craft page interactive pieces */
+
+.crossSection {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: stretch;
+}
+
+.crossStage {
+  position: relative;
+  border: 1px solid var(--theme-line);
+  background:
+    radial-gradient(ellipse at 88% 60%, rgba(239, 178, 95, 0.12), transparent 55%),
+    linear-gradient(180deg, #0c0a0f, #100d13);
+  overflow: hidden;
+}
+
+.crossStage svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.floor {
+  stroke: rgba(239, 178, 95, 0.18);
+  stroke-width: 1;
+}
+
+.layer {
+  opacity: 0.32;
+  transition: opacity 0.45s var(--ease-out), filter 0.45s var(--ease-out);
+}
+
+.crossStage[data-active="lamp"] [data-layer="lamp"],
+.crossStage[data-active="screen"] [data-layer="screen"],
+.crossStage[data-active="figures"] [data-layer="figures"],
+.crossStage[data-active="hands"] [data-layer="hands"],
+.crossStage[data-active="sound"] [data-layer="sound"],
+.crossStage[data-active="audience"] [data-layer="audience"] {
+  opacity: 1;
+  filter: drop-shadow(0 0 14px rgba(239, 178, 95, 0.45));
+}
+
+.silhouette {
+  fill: #2a2330;
+}
+
+.screen {
+  fill: #f0e4cf;
+  opacity: 0.9;
+}
+
+.frame {
+  fill: #6b4a25;
+}
+
+.figureShadow {
+  fill: #0a080c;
+  opacity: 0.95;
+}
+
+.hand {
+  fill: #241d2b;
+}
+
+.rod {
+  stroke: #7a5a34;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.instrument {
+  fill: #8a6a3f;
+}
+
+.lamp {
+  fill: #b8863f;
+}
+
+.flame {
+  fill: #ffd18c;
+}
+
+.lightRay {
+  stroke: rgba(255, 209, 140, 0.32);
+  stroke-width: 1.4;
+  stroke-dasharray: 6 8;
+}
+
+.crossTabs {
+  display: grid;
+  align-content: start;
+  gap: 1.4rem;
+}
+
+.tabList {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--theme-line);
+}
+
+.tab {
+  display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 1rem;
+  padding-block: 0.95rem;
+  border-bottom: 1px solid var(--theme-line);
+  text-align: left;
+  color: var(--theme-muted);
+  transition: color 0.25s ease, padding-left 0.35s var(--ease-out);
+}
+
+.tab:hover,
+.tab[data-active="true"] {
+  color: var(--fg);
+  padding-left: 0.5rem;
+}
+
+.tab[data-active="true"] {
+  color: var(--accent);
+}
+
+.tabShort {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.tabLabel {
+  font-family: var(--font-display), serif;
+  font-size: 1.15rem;
+}
+
+.tabPanel {
+  display: grid;
+  gap: 0.6rem;
+  padding: clamp(1.3rem, 2.6vw, 1.9rem);
+  border: 1px solid var(--theme-line);
+  background: color-mix(in srgb, var(--bg) 94%, var(--paper) 6%);
+  animation: fadeIn 0.5s var(--ease-out);
+}
+
+.tabPanelLabel {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.tabPanelText {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--theme-muted);
+}
+
+/* Puppet anatomy */
+.anatomy {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.anatomyFigure {
+  position: relative;
+  border: 1px solid var(--theme-line);
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(239, 178, 95, 0.12), transparent 60%),
+    linear-gradient(180deg, #0c0a0f, #100d13);
+  padding: 1rem;
+}
+
+.anatomyFigure svg {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  margin-inline: auto;
+}
+
+.part {
+  opacity: 0.34;
+  transition: opacity 0.45s var(--ease-out), filter 0.45s var(--ease-out);
+}
+
+.anatomy[data-active="head"] [data-part="head"],
+.anatomy[data-active="eyes"] [data-part="eyes"],
+.anatomy[data-active="joints"] [data-part="joints"],
+.anatomy[data-active="perforations"] [data-part="perforations"],
+.anatomy[data-active="rods"] [data-part="rods"],
+.anatomy[data-active="colour"] [data-part="colour"] {
+  opacity: 1;
+  filter: drop-shadow(0 0 12px rgba(239, 178, 95, 0.55));
+}
+
+.head,
+.crown {
+  fill: #d8863c;
+}
+
+.crown {
+  fill: #efb25f;
+}
+
+.eye {
+  fill: #f7efdf;
+}
+
+.pupil {
+  fill: #09080b;
+}
+
+.joint {
+  fill: #f7efdf;
+  stroke: #d05a3c;
+  stroke-width: 1.6;
+}
+
+.hole {
+  fill: #0c0a0f;
+}
+
+.rodLine {
+  stroke: #7a5a34;
+  stroke-width: 3.4;
+  stroke-linecap: round;
+}
+
+.anatomyList {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.anatomyNote {
+  display: grid;
+  gap: 0.5rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--theme-line);
+}
+
+.anatomyTelugu {
+  font-family: var(--font-telugu), sans-serif;
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+.anatomyButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.anatomyButton {
+  padding: 0.55rem 0.95rem;
+  border: 1px solid var(--theme-line);
+  border-radius: 999px;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--theme-muted);
+  transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.anatomyButton:hover {
+  color: var(--fg);
+  border-color: var(--line-strong);
+}
+
+.anatomyButton[data-active="true"] {
+  color: var(--ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .crossSection,
+  .anatomy {
+    grid-template-columns: 1fr;
+  }
+
+  .anatomyFigure {
+    max-width: 420px;
+    margin-inline: auto;
+  }
+}

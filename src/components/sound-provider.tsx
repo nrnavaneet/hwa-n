@@ -158,7 +158,7 @@ export function SoundToggle({ className }: { className?: string }) {
       className={`sound-toggle ${enabled ? "is-on" : ""} ${className ?? ""}`.trim()}
       onClick={toggle}
       aria-pressed={enabled}
-      aria-label={enabled ? "Turn sound off" : "Turn sound on"}
+      aria-label={enabled ? "Sound on — turn off" : "Sound off — turn on"}
     >
       <span className="sound-toggle__bars" aria-hidden="true">
         <span />

@@ -1,0 +1,256 @@
+/* Interactive stage (Act V) */
+
+.wrap {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.stage {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  min-height: 320px;
+  border: 1px solid var(--theme-line);
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(239, 178, 95, 0.06), transparent 60%),
+    linear-gradient(180deg, #0b0a0e, #0f0c12);
+  overflow: hidden;
+  touch-action: none;
+}
+
+.screen {
+  position: absolute;
+  inset: 5% 7% 12% 7%;
+  border-radius: 2px;
+  background:
+    radial-gradient(ellipse at 62% 50%, rgba(255, 232, 190, 0.9), rgba(240, 228, 207, 0.72) 55%, rgba(214, 196, 164, 0.55) 100%);
+  box-shadow:
+    0 0 60px rgba(239, 178, 95, 0.18),
+    inset 0 0 80px rgba(120, 84, 36, 0.28);
+}
+
+.screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(120, 84, 36, 0.05) 0px,
+    rgba(120, 84, 36, 0.05) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  opacity: 0.5;
+}
+
+.lampGlow {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 209, 140, 0.5), rgba(239, 178, 95, 0.14) 42%, transparent 68%);
+  pointer-events: none;
+  transition: left 0.25s var(--ease-out), top 0.25s var(--ease-out);
+}
+
+.figureSlot {
+  position: absolute;
+  left: 50%;
+  top: 66%;
+  width: clamp(120px, 30%, 210px);
+  aspect-ratio: 200 / 340;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.shadowLayer,
+.liveLayer {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  will-change: transform, filter;
+  transition: transform 0.35s var(--ease-out), filter 0.35s var(--ease-out), opacity 0.35s var(--ease-out);
+}
+
+.shadowFigure {
+  width: 100%;
+  height: 100%;
+  fill: #07060a;
+}
+
+.liveFigure {
+  width: 100%;
+  height: 100%;
+  fill: rgba(239, 178, 95, 0.24);
+  filter: drop-shadow(0 0 10px rgba(239, 178, 95, 0.35));
+}
+
+.lamp {
+  position: absolute;
+  z-index: 6;
+  width: 46px;
+  height: 46px;
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  transition: left 0.2s var(--ease-out), top 0.2s var(--ease-out);
+}
+
+.lamp:active {
+  cursor: grabbing;
+}
+
+.lamp:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 6px;
+  border-radius: 50%;
+}
+
+.lampBowl {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 30px;
+  height: 14px;
+  transform: translateX(-50%);
+  border-radius: 0 0 15px 15px;
+  background: linear-gradient(180deg, #c9903f, #7a4f1c);
+  box-shadow: 0 0 18px rgba(239, 178, 95, 0.6);
+}
+
+.lampFlame {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  width: 12px;
+  height: 20px;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 45% 45%;
+  background: radial-gradient(circle at 50% 70%, #fff2cf, #ffcf7a 45%, #ef8a2f 100%);
+  box-shadow: 0 0 26px rgba(255, 200, 120, 0.9);
+  animation: stageFlame 2.6s ease-in-out infinite;
+}
+
+.stageHint {
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--theme-muted);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: clamp(1.2rem, 3vw, 2rem);
+  align-items: start;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border: 1px solid var(--theme-line);
+  background: color-mix(in srgb, var(--bg) 95%, var(--paper) 5%);
+}
+
+.controlGroup {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.controlLabel {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.poseRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.poseButton {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--theme-line);
+  border-radius: 999px;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--theme-muted);
+  transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.poseButton:hover {
+  color: var(--fg);
+  border-color: var(--line-strong);
+}
+
+.poseButton[data-active="true"] {
+  color: var(--ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.rangeField {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.rangeLabel {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--theme-muted);
+}
+
+.rangeValue {
+  color: var(--accent);
+}
+
+.reset {
+  align-self: end;
+  justify-self: start;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--theme-line);
+  border-radius: 999px;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--theme-muted);
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.reset:hover {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+@keyframes stageFlame {
+  0%,
+  100% {
+    transform: translateX(-50%) scaleY(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateX(-50%) scaleY(1.12);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lampFlame {
+    animation: none;
+  }
+}

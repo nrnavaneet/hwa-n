@@ -1,0 +1,278 @@
+/* Learn page */
+
+.lessonGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.materials {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.materialItem {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: start;
+  padding-block: 0.7rem;
+  border-bottom: 1px solid var(--theme-line);
+  font-size: 0.95rem;
+  color: var(--theme-muted);
+}
+
+.materialItem::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  margin-top: 0.28rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  border-radius: 3px;
+}
+
+.stepList {
+  display: grid;
+  gap: clamp(1.6rem, 3.4vw, 2.6rem);
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 1.2rem;
+  padding-bottom: clamp(1.6rem, 3vw, 2.4rem);
+  border-bottom: 1px solid var(--theme-line);
+}
+
+.step:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.stepNum {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  padding-top: 0.3rem;
+}
+
+.stepBody {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.stepTitle {
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  line-height: 1.15;
+}
+
+.stepText {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--theme-muted);
+  max-width: 60ch;
+}
+
+.stepTip {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--accent);
+}
+
+.stepTip::before {
+  content: "Tip";
+  font-family: var(--font-mono), monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+/* Checklist */
+.checklist {
+  display: grid;
+  gap: 1.1rem;
+  padding: clamp(1.5rem, 3vw, 2.2rem);
+  border: 1px solid var(--theme-line);
+  background: color-mix(in srgb, var(--bg) 95%, var(--paper) 5%);
+}
+
+.checklistHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.checklistLabel {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.checklistCount {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  color: var(--theme-muted);
+}
+
+.progress {
+  height: 3px;
+  border-radius: 999px;
+  background: var(--line-strong);
+  overflow: hidden;
+}
+
+.progressFill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.45s var(--ease-out);
+}
+
+.checkList {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.checkItem {
+  border-bottom: 1px solid var(--theme-line);
+}
+
+.checkItem:last-child {
+  border-bottom: 0;
+}
+
+.checkLabel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: start;
+  padding-block: 0.85rem;
+  cursor: pointer;
+}
+
+.checkInput {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkBox {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-top: 0.1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  border-radius: 3px;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.checkInput:focus-visible + .checkBox {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.checkInput:checked + .checkBox {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.checkInput:checked + .checkBox::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--ink);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkText {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--theme-muted);
+  transition: color 0.25s ease;
+}
+
+.checkItem[data-done="true"] .checkText {
+  color: var(--fg);
+  text-decoration: line-through;
+  text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.checkReset {
+  justify-self: start;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--theme-muted);
+  transition: color 0.25s ease;
+}
+
+.checkReset:hover:not(:disabled) {
+  color: var(--accent);
+}
+
+.checkReset:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Patterns */
+.patternGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.patternCard {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.4rem, 2.8vw, 2rem);
+  border: 1px solid var(--theme-line);
+  background: var(--bg);
+}
+
+.patternPreview {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  border: 1px dashed var(--line-strong);
+  background: #f6f1e6;
+  overflow: hidden;
+}
+
+.patternPreview img {
+  width: 74%;
+  height: auto;
+}
+
+.patternName {
+  font-family: var(--font-display), serif;
+  font-size: 1.15rem;
+}
+
+@media (max-width: 900px) {
+  .lessonGrid {
+    grid-template-columns: 1fr;
+  }
+}

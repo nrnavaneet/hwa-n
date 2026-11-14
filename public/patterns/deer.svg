@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800" role="img" aria-label="Printable template for a deer puppet with a separate front leg">
+  <rect width="600" height="800" fill="#ffffff"/>
+  <g fill="none" stroke="#111111" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- body -->
+    <path d="M150 360c-30 0-52 26-52 60s22 60 52 60h210c34 0 60-26 60-60s-26-60-60-60Z"/>
+    <!-- neck and head -->
+    <path d="M372 400c30-30 48-72 52-118 2-26-6-44-24-48-16-4-30 8-36 32-10 40-26 76-52 104Z"/>
+    <path d="M400 236c22-6 44-4 60 6 14 10 18 26 10 42-10 20-34 30-60 24Z"/>
+    <!-- antlers -->
+    <path d="M420 214c-4-30 4-56 20-74"/>
+    <path d="M430 168l-26-16"/>
+    <path d="M436 148l22-18"/>
+    <path d="M446 240c10-26 30-40 52-44"/>
+    <!-- front leg (separate piece) -->
+    <path d="M180 470c-8 60-12 130-12 210h44c0-80 4-150 12-210Z"/>
+    <circle cx="182" cy="470" r="7"/>
+    <!-- back leg -->
+    <path d="M392 470c10 60 16 130 18 210h44c-2-80-10-150-20-210Z"/>
+    <!-- second back leg -->
+    <path d="M330 470c8 58 12 126 14 206h44c-2-80-8-148-16-206Z"/>
+  </g>
+  <g fill="#111111" font-family="Helvetica, Arial, sans-serif">
+    <text x="300" y="770" font-size="20" text-anchor="middle" letter-spacing="3">THOLU · DEER TEMPLATE</text>
+  </g>
+  <g fill="none" stroke="#111111" stroke-width="1.4">
+    <circle cx="182" cy="470" r="6"/>
+    <circle cx="392" cy="470" r="6"/>
+    <circle cx="330" cy="470" r="6"/>
+  </g>
+  <text x="300" y="790" fill="#666666" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle">Print at 100% · cut the solid lines · punch the small circles · join with split pins</text>
+</svg>

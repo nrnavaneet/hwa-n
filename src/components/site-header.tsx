@@ -81,7 +81,7 @@ export function SiteHeader() {
     <>
       <header className={cn("site-header", scrolled && "is-scrolled", open && "menu-open")}>
         <div className="site-header__inner">
-          <TransitionLink href="/" className="wordmark" aria-label="THOLU — home">
+          <TransitionLink href="/" className="wordmark">
             <LampMark className="wordmark__mark" />
             <span className="wordmark__stack">
               <span className="wordmark__name">THOLU</span>
